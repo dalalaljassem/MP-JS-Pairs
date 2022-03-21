@@ -37,11 +37,26 @@ Array.prototype.getRandom = function () {
 };
 
 function pairs(names) {
-  // Your code goes here
-}
+ //  *** returns a msg if array is empty  ***
+if (names.length == 0)
+{ return [];}
+// //  *** returns a randomized pairing of names ***
+let random = names.getRandom();
+const pairsArray = [];
+if (names.length % 2 !== 0){
+for(let i = names.length; i < names.length; i++){
+ //odd
+ pairsArray.push([names.getRandom()]);}
+ } else {
+    pairsArray.push([names.getRandom(), names.getRandom()]);
+  }
+  
+  console.log(pairsArray);
+
+    }
 
 module.exports = pairs;
 
 console.log(
-  pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz", "Mr Potato"])
+  pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz"])
 );
