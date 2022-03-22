@@ -38,20 +38,22 @@ Array.prototype.getRandom = function () {
 
 function pairs(names) {
  //  *** returns a msg if array is empty  ***
-if (names.length == 0)
-{ return [];}
+if (!names) return [];
+if (names.length == 0) return [];
+
 // //  *** returns a randomized pairing of names ***
-let random = names.getRandom();
 const pairsArray = [];
-if (names.length % 2 !== 0){
-for(let i = names.length; i < names.length ; i++){
- pairsArray.push([names.getRandom()]);}
- } else {
-  for(let i = names.length; i < names.length ; i+=2){
-    pairsArray.push([names.getRandom(), names.getRandom()]); }
-  }
-  
+while(names.length > 1){
+  const firstName = names.getRandom();
+  const secondName = names.getRandom();
+  const pair = [firstName,secondName];
+  pairsArray.push(pair);
   console.log(pairsArray);
+}
+
+if (names.length===1) pairsArray.push(names);
+console.log(pairsArray);
+return pairsArray;
 
     }
 
